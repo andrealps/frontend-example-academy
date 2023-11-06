@@ -13,7 +13,7 @@
         <round-button
           :class="`${baseClass}__content-button`"
           icon="fa-solid fa-minus"
-          data-test="remove-button"
+          data-test="subtract-button"
           @click="subtract"
         />
       </div>

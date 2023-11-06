@@ -7,7 +7,7 @@ describe('App view', () => {
     cy.visit('/');
   });
 
-  it('displays the title and content of the page', () => {
+  it('Displays the elements on the page', () => {
     cy.get(`.${baseClass}__title`).should('exist');
     cy.get(`.${baseClass}__content`).should('exist');
     cy.get(`.${baseClass}__content-count`).should('exist');
@@ -17,12 +17,31 @@ describe('App view', () => {
     cy.get(`.${baseClass}__reset-button`).should('not.exist');
   });
 
+  it('Shows the title and count value', () => {
+    cy.get(`.${baseClass}__title`).contains('Welcome, User!');
+    cy.get(`.${baseClass}__content-count`).contains('The count is: 0');
+  });
+
+  describe('Content buttons', () => {
+    it('Add 1 to count on click', () => {
+      cy.get(`.${baseClass}__content-count`).contains(0);
+      cy.get('[data-test=add-button]').click();
+      cy.get(`.${baseClass}__content-count`).contains(1);
+    });
+
+    it('Subtract 1 to count on click', () => {
+      cy.get(`.${baseClass}__content-count`).contains(0);
+      cy.get('[data-test=subtract-button]').click();
+      cy.get(`.${baseClass}__content-count`).contains(-1);
+    });
+  });
+
   describe('Reset button', () => {
-    it('is not visible when counter has initial value', () => {
+    it('Is not visible when counter has initial value', () => {
       cy.get(`.${baseClass}__reset-button`).should('not.exist');
     });
 
-    it('is visible when counter value is different from the initial one', () => {
+    it('Is visible when counter value is different from the initial one', () => {
       cy.get('[data-test=add-button]').click();
       cy.get(`.${baseClass}__reset-button`).should('exist');
     });
