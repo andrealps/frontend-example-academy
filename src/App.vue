@@ -7,15 +7,19 @@
         <round-button
           :class="`${baseClass}__content-button`"
           icon="fa-solid fa-plus"
+          data-test="add-button"
           @click="add"
         />
         <round-button
           :class="`${baseClass}__content-button`"
           icon="fa-solid fa-minus"
+          data-test="remove-button"
           @click="subtract"
         />
       </div>
-      <button v-if="showReset" :class="`${baseClass}__reset`" @click="reset">Reset count</button>
+      <button v-if="showReset" :class="`${baseClass}__reset-button`" @click="reset">
+        Reset count
+      </button>
     </div>
   </main>
 </template>
@@ -75,11 +79,11 @@
     }
 
     &__content-button,
-    &__reset {
+    &__reset-button {
       cursor: pointer;
     }
 
-    &__reset {
+    &__reset-button {
       padding: 8px;
       border: 2px solid #0086b2;
       border-radius: 5%;
