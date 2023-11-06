@@ -10,7 +10,7 @@
     size?: string;
     tooltip?: string;
   }>();
-  const emit = defineEmits(['click'])
+  const emit = defineEmits(['click']);
 
   const baseClass = 'round-button';
 </script>

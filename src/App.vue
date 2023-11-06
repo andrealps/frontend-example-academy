@@ -4,10 +4,18 @@
     <div :class="`${baseClass}__content`">
       <p :class="`${baseClass}__content-count`">The count is: {{ count }}</p>
       <div :class="`${baseClass}__content-buttons`">
-        <round-button @click="add" :class="`${baseClass}__content-button`" icon="fa-solid fa-plus" />
-        <round-button @click="subtract" :class="`${baseClass}__content-button`" icon="fa-solid fa-minus" />
+        <round-button
+          :class="`${baseClass}__content-button`"
+          icon="fa-solid fa-plus"
+          @click="add"
+        />
+        <round-button
+          :class="`${baseClass}__content-button`"
+          icon="fa-solid fa-minus"
+          @click="subtract"
+        />
       </div>
-      <button v-if="showReset" @click="reset" :class="`${baseClass}__reset`">Reset count</button>
+      <button v-if="showReset" :class="`${baseClass}__reset`" @click="reset">Reset count</button>
     </div>
   </main>
 </template>
@@ -48,7 +56,8 @@
     border: 8px solid #0086b2;
     border-radius: 5%;
 
-    &, &__content {
+    &,
+    &__content {
       display: flex;
       flex-direction: column;
       gap: 20px;
