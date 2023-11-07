@@ -8,7 +8,6 @@
   defineProps<{
     icon: string;
     size?: string;
-    tooltip?: string;
   }>();
   const emit = defineEmits(['click']);
 

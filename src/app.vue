@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue';
-  import RoundButton from './components/RoundButton.vue';
+  import RoundButton from './components/round-button.component.vue';
 
   const baseClass = 'main-app';
 

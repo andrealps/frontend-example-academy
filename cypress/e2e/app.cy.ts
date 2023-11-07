@@ -1,5 +1,3 @@
-// https://on.cypress.io/api
-
 describe('App view', () => {
   const baseClass = 'main-app';
 
@@ -44,6 +42,14 @@ describe('App view', () => {
     it('Is visible when counter value is different from the initial one', () => {
       cy.get('[data-test=add-button]').click();
       cy.get(`.${baseClass}__reset-button`).should('exist');
+    });
+
+    it('Resets the value of the count on click', () => {
+      cy.get(`.${baseClass}__content-count`).contains(0);
+      cy.get('[data-test=add-button]').click();
+      cy.get(`.${baseClass}__content-count`).contains(1);
+      cy.get(`.${baseClass}__reset-button`).click();
+      cy.get(`.${baseClass}__content-count`).contains(0);
     });
   });
 });
